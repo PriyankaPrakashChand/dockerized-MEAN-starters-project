@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  express-api:
+    build:
+      target: development
+    ports:
+      - 9229:9229
+    volumes:
+      - ./src/express-api/:/express-api/:rw
+    environment:
+      NODE_ENV: development
+    # command: sleep 3600
+    command: npm run debug
+
+  angular-ui:
+    build:
+      target: development
+    volumes:
+      - ./src/angular-ui/:/angular-ui/:rw
+    ports: 
+      - 49153:49153 # for live browser reloading
+    command: npm run debug
