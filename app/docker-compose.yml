@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  express-api:
+    build:
+      context: ./src/express-api
+      target: production
+    ports:
+      - 9229:9229
+      - 8000:8000
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Dubai
+      NODE_ENV: production
+      SERVER_PORT: 8000
+  mongo-db:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+    volumes:
+      - mongo_data_volume:/var/lib/db
+    environment:
+      TZ: Asia/Dubai
+
+  angular-ui:
+    build:
+      context: ./src/angular-ui
+      target: production
+    ports:
+      - 4200:4200
+volumes:
+  mongo_data_volume:

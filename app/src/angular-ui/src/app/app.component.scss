@@ -1,0 +1,25 @@
+* {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+.outer-div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+}
+.input-col {
+  width: 50%;
+  height: auto;
+}
+.output-col {
+  width: 50%;
+  height: auto;
+  border: 1px solid black;
+}
+
+.input-col textarea {
+  width: 100%;
+  height: auto;
+}
